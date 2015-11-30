@@ -12,7 +12,6 @@ public class Reader {
         Queue<Process> a = new LinkedList<>();
         Process p = new Process(1, 20, 10,12);
         Process p1= new Process(2, 12, 7, 8);
-
         a.add(p);
         a.add(p1);
         for (Process process:a) {
