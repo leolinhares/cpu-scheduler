@@ -6,8 +6,13 @@ import java.util.Queue;
  * Created by leolinhares on 30/11/15.
  */
 public abstract class Scheduler {
-    public List<Process> processList;
-    public List<Process> processQueue;
+    protected List<Process> processList;
+
+    protected int totalProcessingTime;
+    protected int CPUutilization;
+    protected double throughput; // total number of process completed per time
+    protected int contextSwitch;
+    protected int numberOfCompletedProcesses;
 
     public Scheduler(List<Process> processes) {
         this.processList = processes;
