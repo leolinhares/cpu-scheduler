@@ -10,7 +10,7 @@ public class Process {
     private int waitingTime; //How much time the process spends waiting on the ready queue
     private int responseTime; //Time from the submission of a request until the first response is produced
 
-    public Process(int ID, int burstTime, int priority, int arrivalTime) {
+    public Process(int ID, int burstTime, int arrivalTime, int priority ) {
         this.ID = ID;
         this.burstTime = burstTime;
         this.priority = priority;
