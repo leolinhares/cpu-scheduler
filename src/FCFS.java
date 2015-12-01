@@ -34,17 +34,18 @@ public class FCFS extends Scheduler {
                 System.out.println("buraco");
                 //buraco
                 p.setWaitingTime(0);
-                cpuTick = p.getArrivalTime();
+                cpuTick = p.getBurstTime() + p.getArrivalTime();
             }
             p.setTurnaround(p.getWaitingTime()+p.getBurstTime());
             p.setResponseTime(p.getTurnaround());
         }
 
         for (Process p: processList){
-            System.out.println(p + " waiting: " + p.getWaitingTime());
-            System.out.println(p + " turn: " + p.getTurnaround());
+            System.out.println("Process " + p.getID() + " - waiting: " + p.getWaitingTime());
+            System.out.println("Process " + p.getID() + " - turn: " + p.getTurnaround());
+            System.out.println("Process " + p.getID() + " - response: " + p.getResponseTime());
+            System.out.println();
 
-            //System.out.println(p.getTurnaround());
         }
     }
 }
