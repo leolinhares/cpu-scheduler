@@ -11,7 +11,7 @@ public class Reader {
 
     public ArrayList run() {
         ArrayList <Process> processList = new ArrayList<>();
-        String arquivo = "csv/processQueue.csv";
+        String arquivo = "csv/process.csv";
         BufferedReader br = null;
         String linha = "";
         String separar = ";";

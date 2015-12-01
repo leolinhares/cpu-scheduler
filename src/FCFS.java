@@ -25,7 +25,6 @@ public class FCFS extends Scheduler {
     @Override
     public void execute() {
         int cpuTick = 0;
-        int count = 0;
         for(Process p: processList) {
             // colado ou escada
             if (cpuTick - p.getArrivalTime() >= 0){
@@ -42,7 +41,9 @@ public class FCFS extends Scheduler {
         }
 
         for (Process p: processList){
-            System.out.println(p.getWaitingTime());
+            System.out.println(p + " waiting: " + p.getWaitingTime());
+            System.out.println(p + " turn: " + p.getTurnaround());
+
             //System.out.println(p.getTurnaround());
         }
     }
