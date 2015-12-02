@@ -31,7 +31,6 @@ public class FCFS extends Scheduler {
                 p.setWaitingTime(cpuTick - p.getArrivalTime());
                 cpuTick = cpuTick + p.getBurstTime();
             }else{
-                System.out.println("buraco");
                 //buraco
                 p.setWaitingTime(0);
                 cpuTick = p.getBurstTime() + p.getArrivalTime();
@@ -54,10 +53,10 @@ public class FCFS extends Scheduler {
 
         }
 
-        this.throughput = processList.size()/cpuTick; //process:time
-        this.totalProcessingTime = processingTotal;
-        this.CPUutilization = processingTotal/cpuTick;
-        double m = turnTotal/processList.size(); //turnaround media
-        this.contextSwitch = processList.size();
+        System.out.println(this.throughput = processList.size()/(double)cpuTick); //process:time
+        System.out.println(this.totalProcessingTime = processingTotal);
+        System.out.println(this.CPUutilization = processingTotal/(double)cpuTick);
+        System.out.println(turnTotal/processList.size());
+        System.out.println(this.contextSwitch = processList.size());
     }
 }

@@ -9,7 +9,7 @@ public abstract class Scheduler {
     protected List<Process> processList;
 
     protected int totalProcessingTime;
-    protected int CPUutilization;
+    protected double CPUutilization;
     protected double throughput; // total number of process completed per time
     protected int contextSwitch;
     protected int numberOfCompletedProcesses;
