@@ -10,5 +10,9 @@ import java.util.ArrayList;
                 processList = reader.run();
                 FCFS fcfs = new FCFS(processList);
                 fcfs.execute();
+                SJF sjf = new SJF(processList);
+                sjf.execute();
+                Priority priority = new Priority(processList);
+                priority.execute();
     }
 }
