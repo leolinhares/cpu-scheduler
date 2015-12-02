@@ -40,12 +40,24 @@ public class FCFS extends Scheduler {
             p.setResponseTime(p.getTurnaround());
         }
 
+        int processingTotal = 0;
+        int turnTotal = 0;
+        int waitingTotal = 0;
+        int responseTotal = 0;
+
         for (Process p: processList){
-            System.out.println("Process " + p.getID() + " - waiting: " + p.getWaitingTime());
-            System.out.println("Process " + p.getID() + " - turn: " + p.getTurnaround());
-            System.out.println("Process " + p.getID() + " - response: " + p.getResponseTime());
-            System.out.println();
+
+            processingTotal = processingTotal + p.getBurstTime(); //total processing time
+            turnTotal = turnTotal + p.getTurnaround(); // total turnaround
+            waitingTotal = waitingTotal + p.getWaitingTime(); // total waiting time
+            responseTotal = responseTotal + p.getResponseTime();
 
         }
+
+        this.throughput = processList.size()/cpuTick; //process:time
+        this.totalProcessingTime = processingTotal;
+        this.CPUutilization = processingTotal/cpuTick;
+        double m = turnTotal/processList.size(); //turnaround media
+        this.contextSwitch = processList.size();
     }
 }
