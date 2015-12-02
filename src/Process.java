@@ -1,7 +1,7 @@
 /**
  * Created by leolinhares on 26/11/15.
  */
-public class Process {
+public class Process{
     private int ID;
     private int burstTime;
     private int priority;

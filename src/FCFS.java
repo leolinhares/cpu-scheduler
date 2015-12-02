@@ -31,20 +31,42 @@ public class FCFS extends Scheduler {
                 p.setWaitingTime(cpuTick - p.getArrivalTime());
                 cpuTick = cpuTick + p.getBurstTime();
             }else{
-                System.out.println("buraco");
                 //buraco
                 p.setWaitingTime(0);
-                cpuTick = p.getArrivalTime();
+                cpuTick = p.getBurstTime() + p.getArrivalTime();
             }
             p.setTurnaround(p.getWaitingTime()+p.getBurstTime());
             p.setResponseTime(p.getTurnaround());
         }
 
-        for (Process p: processList){
-            System.out.println(p + " waiting: " + p.getWaitingTime());
-            System.out.println(p + " turn: " + p.getTurnaround());
+        int processingTotal = 0;
+        int turnTotal = 0;
+        int waitingTotal = 0;
+        int responseTotal = 0;
 
-            //System.out.println(p.getTurnaround());
+        for (Process p: processList){
+
+            processingTotal = processingTotal + p.getBurstTime(); //total processing time
+            turnTotal = turnTotal + p.getTurnaround(); // total turnaround
+            waitingTotal = waitingTotal + p.getWaitingTime(); // total waiting time
+            responseTotal = responseTotal + p.getResponseTime();
+
         }
+
+        this.CPUutilization = processingTotal/(double)cpuTick;
+        this.totalProcessingTime = processingTotal;
+        this.contextSwitch = 0;
+        this.averageResponse = responseTotal/(double)processList.size();
+        this.averageTurnaround = turnTotal/(double)processList.size();
+        this.averageWaiting = waitingTotal/(double)processList.size();
+        this.numberOfCompletedProcesses = processList.size();
+        this.throughput = processList.size()/(double)cpuTick;
+
+
+        System.out.println(this.throughput = processList.size()/(double)cpuTick); //process:time
+        System.out.println(this.totalProcessingTime = processingTotal);
+        System.out.println(this.CPUutilization = processingTotal/(double)cpuTick);
+        System.out.println(turnTotal/(double)processList.size()); //turnaround media
+
     }
 }

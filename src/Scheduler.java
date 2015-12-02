@@ -9,10 +9,15 @@ public abstract class Scheduler {
     protected List<Process> processList;
 
     protected int totalProcessingTime;
-    protected int CPUutilization;
+    protected double CPUutilization;
     protected double throughput; // total number of process completed per time
     protected int contextSwitch;
     protected int numberOfCompletedProcesses;
+
+    protected double averageWaiting;
+    protected double averageResponse;
+    protected double averageTurnaround;
+
 
     public Scheduler(List<Process> processes) {
         this.processList = processes;
