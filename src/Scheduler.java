@@ -14,6 +14,11 @@ public abstract class Scheduler {
     protected int contextSwitch;
     protected int numberOfCompletedProcesses;
 
+    protected double averageWaiting;
+    protected double averageResponse;
+    protected double averageTurnaround;
+
+
     public Scheduler(List<Process> processes) {
         this.processList = processes;
     }

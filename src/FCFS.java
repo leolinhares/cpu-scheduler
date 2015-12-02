@@ -53,10 +53,20 @@ public class FCFS extends Scheduler {
 
         }
 
+        this.CPUutilization = processingTotal/(double)cpuTick;
+        this.totalProcessingTime = processingTotal;
+        this.contextSwitch = 0;
+        this.averageResponse = responseTotal/(double)processList.size();
+        this.averageTurnaround = turnTotal/(double)processList.size();
+        this.averageWaiting = waitingTotal/(double)processList.size();
+        this.numberOfCompletedProcesses = processList.size();
+        this.throughput = processList.size()/(double)cpuTick;
+
+
         System.out.println(this.throughput = processList.size()/(double)cpuTick); //process:time
         System.out.println(this.totalProcessingTime = processingTotal);
         System.out.println(this.CPUutilization = processingTotal/(double)cpuTick);
-        System.out.println(turnTotal/processList.size());
-        System.out.println(this.contextSwitch = processList.size());
+        System.out.println(turnTotal/(double)processList.size()); //turnaround media
+
     }
 }
