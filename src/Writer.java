@@ -9,8 +9,8 @@ public class Writer {
     public static  void  main(String[] args){
         BufferedWriter escrever = null;
         try{
-            File arquivoDeLog = new File();// passar os valores para criar o arquivo
-            escrever = new BufferedWriter( new FileWriter()); // escrever no arquivo os valores passados
+//            File arquivoDeLog = new File();// passar os valores para criar o arquivo
+//            escrever = new BufferedWriter( new FileWriter()); // escrever no arquivo os valores passados
             escrever.write("qualquer coisa");
         } catch (Exception e){
             e.printStackTrace();
