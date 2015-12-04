@@ -17,16 +17,21 @@ public class SJF extends FCFS{
         super.execute();
     }
 
-    public void execute(boolean preemptive){
+    public void execute(boolean preemptive, Comparator cmp){
+        Comparator<Process> comparator;
+        if (cmp == null){
+             comparator = new Comparator<Process>() {
+                @Override
+                public int compare(Process o1, Process o2) {
+                    Integer time1 = o1.getBurstTime();
+                    Integer time2 = o2.getBurstTime();
+                    return time1.compareTo(time2);
+                }
+            };
+        }else{
+            comparator = cmp;
+        }
 
-        Comparator<Process> comparator = new Comparator<Process>() {
-            @Override
-            public int compare(Process o1, Process o2) {
-                Integer time1 = o1.getBurstTime();
-                Integer time2 = o2.getBurstTime();
-                return time1.compareTo(time2);
-            }
-        };
 
         // ordered by smallest burst time
         PriorityQueue<Process> waitingQueue = new PriorityQueue<>(comparator);

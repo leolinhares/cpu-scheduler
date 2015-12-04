@@ -13,7 +13,10 @@ public class Main {
 
 //                FCFS fcfs = new FCFS(processList);
 //                fcfs.execute();
-                SJF sjfp = new SJF(processList);
-                sjfp.execute(true);
+//                SJF sjf = new SJF(processList);
+//                sjf.execute(true, null);
+                Priority p = new Priority(processList);
+                p.execute(true);
+
             }
 }
