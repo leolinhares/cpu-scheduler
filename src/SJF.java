@@ -50,7 +50,6 @@ public class SJF extends FCFS{
 
                 //remove the process with smallest burst time
                 Process p = waitingQueue.poll();
-
                 p.setBurstTime(p.getBurstTime()-1);
 
 
@@ -60,6 +59,9 @@ public class SJF extends FCFS{
                     p.setTurnaround(i+1);
                 }
 
+                if (p.getResponseTime() == 0){
+                    p.setResponseTime(i+1);
+                }
                 //saving everything to a new list
                 newListOfProcesses.add(p);
 
