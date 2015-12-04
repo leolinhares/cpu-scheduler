@@ -7,7 +7,7 @@ public class Process{
     private int priority;
     private int arrivalTime;
     private int turnaround; //How long it takes to execute the process
-    private int waitingTime; //How much time the process spends waiting on the ready queue
+    private int waitingTime = 0; //How much time the process spends waiting on the ready queue
     private int responseTime; //Time from the submission of a request until the first response is produced
 
     public Process(int ID, int burstTime, int arrivalTime, int priority ) {
