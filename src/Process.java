@@ -4,6 +4,7 @@
 public class Process{
     private int ID;
     private int burstTime;
+    private int originalBurstTime;
     private int priority;
     private int arrivalTime;
     private int turnaround; //How long it takes to execute the process
@@ -13,6 +14,7 @@ public class Process{
     public Process(int ID, int burstTime, int arrivalTime, int priority ) {
         this.ID = ID;
         this.burstTime = burstTime;
+        this.originalBurstTime = burstTime;
         this.priority = priority;
         this.arrivalTime = arrivalTime;
     }
@@ -71,5 +73,13 @@ public class Process{
 
     public void setResponseTime(int responseTime) {
         this.responseTime = responseTime;
+    }
+
+    public int getOriginalBurstTime() {
+        return originalBurstTime;
+    }
+
+    public void setOriginalBurstTime(int originalBurstTime) {
+        this.originalBurstTime = originalBurstTime;
     }
 }
