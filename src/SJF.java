@@ -70,14 +70,40 @@ public class SJF extends FCFS{
             i++;
         }while (processList.size() > 0 || waitingQueue.size() > 0);
 
+        // Adding the waiting time
         for (Process p : newListOfProcesses) {
             p.setWaitingTime(p.getTurnaround()-p.getOriginalBurstTime()-p.getArrivalTime());
         }
 
+        //removing duplicates
         newListOfProcesses = new ArrayList(new HashSet(newListOfProcesses));
+        //sorting by ID
         Collections.sort(newListOfProcesses, Comparator.comparing(Process::getID));
+
         for (Process p: newListOfProcesses){
             System.out.println(p.getID() + " "+ p.getTurnaround() + " " +p.getResponseTime()+ " " + p.getWaitingTime() );
         }
+
+        int processingTotal = 0;
+        int turnTotal = 0;
+        int waitingTotal = 0;
+        int responseTotal = 0;
+
+        for (Process p: newListOfProcesses){
+
+            processingTotal = processingTotal + p.getBurstTime(); //total processing time
+            turnTotal = turnTotal + p.getTurnaround(); // total turnaround
+            waitingTotal = waitingTotal + p.getWaitingTime(); // total waiting time
+            responseTotal = responseTotal + p.getResponseTime();
+        }
+
+        this.CPUutilization = processingTotal/(double)i;
+        this.totalProcessingTime = processingTotal;
+        this.contextSwitch = 0;
+        this.averageResponse = responseTotal/(double)newListOfProcesses.size();
+        this.averageTurnaround = turnTotal/(double)newListOfProcesses.size();
+        this.averageWaiting = waitingTotal/(double)newListOfProcesses.size();
+        this.numberOfCompletedProcesses = newListOfProcesses.size();
+        this.throughput = newListOfProcesses.size()/(double)i;
     }
 }
