@@ -73,7 +73,9 @@ public class SJF extends FCFS{
         for (Process p : newListOfProcesses) {
             p.setWaitingTime(p.getTurnaround()-p.getOriginalBurstTime()-p.getArrivalTime());
         }
-        
+
+        newListOfProcesses = new ArrayList(new HashSet(newListOfProcesses));
+        Collections.sort(newListOfProcesses, Comparator.comparing(Process::getID));
         for (Process p: newListOfProcesses){
             System.out.println(p.getID() + " "+ p.getTurnaround() + " " +p.getResponseTime()+ " " + p.getWaitingTime() );
         }
