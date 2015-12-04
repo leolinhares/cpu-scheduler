@@ -11,7 +11,6 @@ public class Writer {
         try{
 //            File arquivoDeLog = new File();// passar os valores para criar o arquivo
 //            escrever = new BufferedWriter( new FileWriter()); // escrever no arquivo os valores passados
-//            escrever.write("qualquer coisa");
         } catch (Exception e){
             e.printStackTrace();
         } finally {
