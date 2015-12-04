@@ -10,8 +10,8 @@ import java.util.PriorityQueue;
                 ArrayList<Process> processList = new ArrayList<Process>();
                 Reader reader = new Reader();
                 processList = reader.run();
-                FCFS fcfs = new FCFS(processList);
-                fcfs.execute();
+//                FCFS fcfs = new FCFS(processList);
+//                fcfs.execute();
                 SJF sjfp = new SJF(processList);
                 sjfp.execute(true);
 

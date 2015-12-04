@@ -30,41 +30,46 @@ public class SJF extends FCFS{
 
         // ordered by smallest burst time
         PriorityQueue<Process> waitingQueue = new PriorityQueue<>(comparator);
-
+        ArrayList<Process> newListOfProcesses = new ArrayList<>();
         int i = 0;
         do{
 
-            // Find processes that have arrived at the second 'i'
-            for (int j = 0; j < processList.size(); j++) {
-                if (processList.get(j).getArrivalTime() == i) {
-                    Process p = processList.get(j);
-                    waitingQueue.add(p);
-                    processList.remove(j);
-                }else if (processList.get(j).getArrivalTime() > i){
+            Iterator<Process> iterator = processList.iterator();
+            while (iterator.hasNext()){
+                Process current = iterator.next();
+                if (current.getArrivalTime() == i) {
+                    waitingQueue.add(current);
+                    iterator.remove();
+                }else if (current.getArrivalTime()>i){
                     break;
                 }
             }
 
+            //If there's something to execute
+            if (waitingQueue.size() > 0){
 
-            //'execute' first process of the waiting queue ()
+                //remove the process with smallest burst time
+                Process p = waitingQueue.poll();
 
-            //remove the process with smallest burst time
-            Process p = waitingQueue.poll();
-            System.out.println(p.getID());
+                p.setBurstTime(p.getBurstTime()-1);
 
-            p.setWaitingTime(p.getWaitingTime()+ i);
-            p.setBurstTime(p.getBurstTime()-1);
 
-//            p.setTurnaround();
-//            p.setResponseTime();
+                if (p.getBurstTime() != 0){
+                    waitingQueue.add(p);
+                }else{
+                    p.setTurnaround(i+1);
+                }
 
-            if (p.getBurstTime() != 0){
-                waitingQueue.add(p);
+                //saving everything to a new list
+                newListOfProcesses.add(p);
+
+
             }
-
             i++;
-        }while (waitingQueue.size() > 0 && processList.size() > 0);
+        }while (processList.size() > 0 || waitingQueue.size() > 0);
 
-
+        for (Process p: newListOfProcesses){
+            System.out.println(p.getID() + " "+ p.getTurnaround() + " " +p.getResponseTime()+ " " + p.getWaitingTime() );
+        }
     }
 }
