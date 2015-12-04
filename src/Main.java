@@ -8,7 +8,7 @@ import java.util.ArrayList;
                 ArrayList<Process> processList = new ArrayList<Process>();
                 Reader reader = new Reader();
                 processList = reader.run();
-                FCFS fcfs = new FCFS(processList);
-                fcfs.execute();
+                RR rr = new RR(processList);
+                rr.execute(2);
     }
 }
