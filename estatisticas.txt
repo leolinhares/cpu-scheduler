@@ -1,0 +1,46 @@
+
+
+FCFS
+Average Response: 8.428571428571429
+Average Turnaround: 8.428571428571429
+Average Waiting: 3.2857142857142856
+CPU Utilization: 0.8372093023255814
+Number of completed processes: 7.0
+Throughput: 0.16279069767441862
+Total processing time: 36.0
+
+SJF
+Average Response: 7.857142857142857
+Average Turnaround: 7.857142857142857
+Average Waiting: 2.7142857142857144
+CPU Utilization: 0.8372093023255814
+Number of completed processes: 7.0
+Throughput: 0.16279069767441862
+Total processing time: 36.0
+
+Priority
+Average Response: 7.857142857142857
+Average Turnaround: 7.857142857142857
+Average Waiting: 2.7142857142857144
+CPU Utilization: 0.8372093023255814
+Number of completed processes: 7.0
+Throughput: 0.16279069767441862
+Total processing time: 36.0
+
+SJF
+Average Response: 15.142857142857142
+Average Turnaround: 19.428571428571427
+Average Waiting: 2.5714285714285716
+CPU Utilization: 0.8372093023255814
+Number of completed processes: 7.0
+Throughput: 0.16279069767441862
+Total processing time: 43.0
+
+Priority
+Average Response: 16.428571428571427
+Average Turnaround: 21.285714285714285
+Average Waiting: 4.428571428571429
+CPU Utilization: 0.8372093023255814
+Number of completed processes: 7.0
+Throughput: 0.16279069767441862
+Total processing time: 43.0

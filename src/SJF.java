@@ -1,6 +1,7 @@
 import java.util.*;
 
 import static java.util.Comparator.comparing;
+import static java.util.Comparator.nullsFirst;
 
 /**
  * Created by leolinhares on 30/11/15.
@@ -56,7 +57,7 @@ public class SJF extends FCFS{
                 //remove the process with smallest burst time
                 Process p = waitingQueue.poll();
                 p.setBurstTime(p.getBurstTime()-1);
-
+                System.out.println(p.getID());
 
                 if (p.getBurstTime() != 0){
                     waitingQueue.add(p);
@@ -96,19 +97,22 @@ public class SJF extends FCFS{
 
         for (Process p: newListOfProcesses){
 
-            processingTotal = processingTotal + p.getBurstTime(); //total processing time
+            processingTotal = processingTotal + p.getOriginalBurstTime(); //total processing time
             turnTotal = turnTotal + p.getTurnaround(); // total turnaround
             waitingTotal = waitingTotal + p.getWaitingTime(); // total waiting time
             responseTotal = responseTotal + p.getResponseTime();
         }
 
         this.CPUutilization = processingTotal/(double)i;
-        this.totalProcessingTime = processingTotal;
+        this.totalProcessingTime = i;
         this.contextSwitch = 0;
         this.averageResponse = responseTotal/(double)newListOfProcesses.size();
         this.averageTurnaround = turnTotal/(double)newListOfProcesses.size();
         this.averageWaiting = waitingTotal/(double)newListOfProcesses.size();
         this.numberOfCompletedProcesses = newListOfProcesses.size();
         this.throughput = newListOfProcesses.size()/(double)i;
+
+        System.out.println(totalProcessingTime);
+        System.out.println(CPUutilization);
     }
 }
